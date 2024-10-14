@@ -139,6 +139,7 @@ bool RELAYARRAY[] = {0, 0, 0, 0, 0, 0, 0, 0};
 String receivedString;
 char receivedChar;
 boolean newData = false;
+String FirmwareVer = "14-10-2024";
 
 
 //OBJECTS
@@ -841,6 +842,18 @@ void BT_CODE( void * pvParameters ) {
         SerialBT.println(InverterStatus1 + "/" + InverterStatus2 + "/" + InverterStatus3 + "/" + InverterStatus4 + "#");
         message = "";
       }
+
+      //GET FIRMWARE ////////////////////////////////
+      param_start2 = message.indexOf("GETFIRMWARE");
+      param_end2 = message.indexOf("#");
+      if (param_start2 != -1 && param_end2 != -1) {
+        SerialBT.println(FirmwareVer);
+        message = "";
+      }
+
+
+
+
 
       //GET STATUS ////////////////////////////////
       param_start2 = message.indexOf("GETLIMITS");
