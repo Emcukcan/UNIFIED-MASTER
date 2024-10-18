@@ -146,7 +146,7 @@ bool RELAYARRAY[] = {0, 0, 0, 0, 0, 0, 0, 0};
 String receivedString;
 char receivedChar;
 boolean newData = false;
-String FirmwareVer = "18-10-2024 Ver1";
+String FirmwareVer = "18-10-2024 Ver2";
 
 
 //OBJECTS
@@ -418,7 +418,7 @@ void CANBUSTASK_INVERTER_CODE( void * pvParameters ) {
 
 
     CalculatedChargeCurrent = MaxCurrent * ChargePercentage * MaxSystemVoltageRule * 0.01 * MaxSOCRule;
-    CalculatedDischargeCurrent = MaxCurrent * DischargePercentage * MaxSystemVoltageRule * 0.01 * MinSOCRule;
+    CalculatedDischargeCurrent = MaxCurrent * DischargePercentage * 100 * 0.01 * MinSOCRule;
 
 
     if (String1MaxCellModbus < 4.4  && String1MinCellModbus < 4.7 && String1MaxCellModbus > 1.8  && String1MinCellModbus > 1.8) {
